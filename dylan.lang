@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE language SYSTEM "language.dtd">
+<language _name="Dylan" version="1.0" _section="Sources" mimetypes="text/x-dylan">
+	
+	<escape-char>\</escape-char>
+
+	<line-comment _name = "Line Comment" style= "Comment">
+		<start-regex>//</start-regex>
+	</line-comment>
+
+	<block-comment _name = "Block Comment" style = "Comment">
+		<start-regex>/\*</start-regex>
+        	<end-regex>\*/</end-regex>
+	</block-comment>
+
+	<string _name = "String" style = "String" end-at-line-end = "TRUE">
+		<start-regex>&quot;</start-regex>
+		<end-regex>&quot;</end-regex>
+	</string>
+
+<!-- vars in dylan can contain: ! & * < = >  | ^ $ % @ _ - + ~ ? / 
+    by convention, types are surrounded by <>, module vars by **
+-->
+
+<!-- broken: someone who knows regular expressions figure it out
+    <pattern-item _name = "Types 2" style = "Others" end-at-line-end = "TRUE">
+        <start-regex>\<[0-9a-zA-Z\!\&\=\|\^\$\%\@\_\-\+\~\?\/]</start-regex>
+        <end-regex>[0-9a-zA-Z\!\&\=\|\^\$\%\@\_\-\+\~\?\/]\></end-regex>
+    </pattern-item>
+-->    
+
+<!-- likewise broken
+	<syntax-item _name = "Include/Pragma" style = "Preprocessor">
+		<start-regex>^#[ \t]*(include|pragma)</start-regex>
+	         <end-regex>\n</end-regex>
+	</syntax-item>
+-->
+
+<!-- this doesn't work either
+    <keyword-list _name = "# Words" style = "Preprocessor" case-sensitive="TRUE">
+        <keyword>#t</keyword>
+        <keyword>#f</keyword>
+        <keyword>#next</keyword>
+        <keyword>#rest</keyword>
+        <keyword>#all-keys</keyword>
+        <keyword>#include</keyword>
+    </keyword-list>
+-->
+
+    <keyword-list _name = "Keywords" style = "Keyword" case-sensitive="TRUE">
+		<keyword>define</keyword>
+        <keyword>let</keyword>
+        <keyword>make</keyword>
+        <keyword>instance?</keyword>
+        <keyword>subtype?</keyword>
+        <keyword>handler</keyword>
+        <keyword>use</keyword>
+        <keyword>language</keyword> 
+        <keyword>module</keyword>
+        <keyword>author</keyword>
+        <keyword>copyright</keyword>
+        <keyword>version</keyword>
+        <keyword>synopsis</keyword>
+	</keyword-list>
+
+	<keyword-list _name = "Types" style = "Data Type" case-sensitive="TRUE">
+        <keyword>macro</keyword>
+        <keyword>variable</keyword>
+        <keyword>method</keyword>
+        <keyword>class</keyword>
+        <keyword>slot</keyword>
+        <keyword>library</keyword>
+        <keyword>constant</keyword>
+        <keyword>generic</keyword>
+        <keyword>variable</keyword>
+        <keyword>block</keyword>
+        <keyword>function</keyword>
+	</keyword-list>
+    
+    <keyword-list _name = "Modifiers" style = "Keyword" case-sensitive="TRUE">
+        <keyword>sealed</keyword>
+        <keyword>open</keyword>
+        <keyword>primary</keyword>
+        <keyword>free</keyword>
+        <keyword>abstract</keyword>
+        <keyword>concrete</keyword>
+        <keyword>local</keyword>
+        <keyword>inherited</keyword>
+        <keyword>instance</keyword>
+        <keyword>domain</keyword>        
+    </keyword-list>
+    
+    <keyword-list _name = "Flow Control" style = "Keyword" case-sensitive="TRUE">
+        <keyword>begin</keyword>
+        <keyword>end</keyword>
+        <keyword>if</keyword>
+        <keyword>else</keyword>
+        <keyword>unless</keyword>
+        <keyword>case</keyword>
+        <keyword>select</keyword>
+        <keyword>while</keyword>
+        <keyword>until</keyword>
+        <keyword>for</keyword>
+        <keyword>otherwise</keyword>
+    </keyword-list>
+
+	<string _name = "Character Constant" style = "String" end-at-line-end = "TRUE">
+		<start-regex>&apos;</start-regex>
+		<end-regex>&apos;</end-regex>
+	</string>
+
+	<pattern-item _name = "Decimal" style = "Decimal">
+		<regex>\b([1-9][0-9]*|0)([Uu]([Ll]|LL|ll)?|([Ll]|LL|ll)[Uu]?)?\b</regex>
+	</pattern-item>
+
+	<pattern-item _name = "Floating Point Number" style = "Floating Point">
+		<regex>\b([0-9]+[Ee][-]?[0-9]+|([0-9]*\.[0-9]+|[0-9]+\.)([Ee][-]?[0-9]+)?)[fFlL]?</regex>
+	</pattern-item>
+
+<!-- These don't actually seem to work... I need to work on mt regex skills
+     (mostly copied from the C lang spec, but I added the #b / #o / #x things,
+     which broke it)
+
+    <pattern-item _name = "Binary Number" style = "Base-N Integer">
+        <regex>\b#b [0-1]+([Uu]([Ll]|LL|ll)?|([Ll]|LL|ll)[Uu]?)?\b</regex>
+    </pattern-item>
+    
+	<pattern-item _name = "Octal Number" style = "Base-N Integer">
+		<regex>\b#o [0-7]+([Uu]([Ll]|LL|ll)?|([Ll]|LL|ll)[Uu]?)?\b</regex>
+	</pattern-item>
+
+	<pattern-item _name = "Hex Number" style = "Base-N Integer">
+		<regex>\b#x [0-9a-fA-F]+([Uu]([Ll]|LL|ll)?|([Ll]|LL|ll)[Uu]?)?\b</regex>
+	</pattern-item>
+    
+-->
+
+</language>
+
